@@ -4,14 +4,6 @@ import react, { Component } from "react";
 const api = axios.create({
     baseURL: 'https://covid19.ddc.moph.go.th/api/Cases/timeline-cases-all'
 })
-// 
-// const dataLists = () => {
-//     return (
-//         <div>
-
-//         </div>
-//     )
-// }
 
 class DataLists extends Component {
 
