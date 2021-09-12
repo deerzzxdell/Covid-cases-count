@@ -2,9 +2,15 @@ import React from 'react'
 
 const CaseList = ({ca}) => {
     return (
-        <ul>
-            <li>Date: {ca.txn_date}  New cases: {ca.new_case} New Death: {ca.new_death}</li>
-        </ul>
+        <table className = "list">
+            
+            <tr>
+                <td>{ca.txn_date}</td>
+                <td>{ca.new_case}</td>
+                <td>{ca.new_death}</td>
+            </tr>
+            
+        </table>
     )
 }
 

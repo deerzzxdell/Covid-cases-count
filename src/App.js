@@ -17,7 +17,7 @@ const App = () => {
   }
 ,[])
   return (
-    <div>
+    <div className = "container">
       <TotalCases covidCase = {covidData}/>
       <Cases covidData = {covidData}/>
     </div>
