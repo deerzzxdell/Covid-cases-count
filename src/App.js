@@ -1,26 +1,27 @@
-import axios from "axios";
-import react, { Component } from "react";
+import axios from 'axios'
+import { useState ,useEffect } from 'react'
+import Cases from "./components/Cases";
+import TotalCases from "./components/TotalCases";
 
-const api = axios.create({
-  baseURL: 'https://covid19.ddc.moph.go.th/api/Cases/timeline-cases-all'
+
+
+const App = () => {
+  const [covidData, setCovidData] = useState({
+    cases: [],
 })
-
-class App extends Component {
-
-  constructor(props) {
-    super()
-    api.get('/').then(res => {
+    useEffect(() => {
+    axios.get('https://covid19.ddc.moph.go.th/api/Cases/timeline-cases-all').then((res) => {
       console.log(res.data)
-    })
+      setCovidData({cases: res.data})
+    })  
   }
-
-  render() {
-    return (
-      <div>
-        <h1>Covid-19 Cases</h1>
-      </div>
-    )
-  }
+,[])
+  return (
+    <div>
+      <TotalCases covidCase = {covidData}/>
+      <Cases covidData = {covidData}/>
+    </div>
+  )
 }
 
 export default App;
