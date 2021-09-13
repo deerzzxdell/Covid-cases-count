@@ -1,7 +1,16 @@
 import React from 'react'
 import { useMemo } from 'react'
+import styled from 'styled-components'
 
-const TotalCases = ({covidCase}) => {
+type Todo = {
+    covidCase: {
+        cases:{
+            new_case: number,
+        }[],
+    }  
+}
+
+const TotalCases = ({covidCase}:Todo) => {
     const Total = useMemo(() => {
         let newAmount = 0;
         for(let i = 0; i < covidCase.cases.length; i++){
@@ -9,11 +18,17 @@ const TotalCases = ({covidCase}) => {
         }
         return newAmount
     },[covidCase])
+
+const Header = styled.div`
+    font-size: 20pt;
+    text-align: center;
+`;
+
     return (
-        <div className = "header">
+        <Header>
             <p>Total Cases: </p>
             <h2>{Total}</h2>
-        </div>
+        </Header>
     )
 }
 

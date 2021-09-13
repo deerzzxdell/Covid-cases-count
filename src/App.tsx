@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState ,useEffect } from 'react'
+import styled from 'styled-components';
 import Cases from "./components/Cases";
 import TotalCases from "./components/TotalCases";
 
@@ -16,11 +17,18 @@ const App = () => {
     })  
   }
 ,[])
+
+const Body = styled.div`
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+`;
+
   return (
-    <div className = "container">
+    <Body>
       <TotalCases covidCase = {covidData}/>
       <Cases covidData = {covidData}/>
-    </div>
+    </Body>
   )
 }
 
