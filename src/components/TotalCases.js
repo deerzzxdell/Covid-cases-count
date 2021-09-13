@@ -10,8 +10,9 @@ const TotalCases = ({covidCase}) => {
         return newAmount
     },[covidCase])
     return (
-        <div>
-            <p>Total Cases: {Total}</p>
+        <div className = "header">
+            <p>Total Cases: </p>
+            <h2>{Total}</h2>
         </div>
     )
 }
